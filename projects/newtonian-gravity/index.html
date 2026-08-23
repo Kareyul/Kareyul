@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Newtonian Gravity Simulator</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="section">
+    <div class="container">
+      <h1>Newtonian Gravity Simulator</h1>
+      <p>A Python program that simulates gravitational interactions between particles with visualization for analysis and teaching.</p>
+      <!-- Image carousel: auto-rotates through available screenshots -->
+      <div class="carousel" style="max-width:900px;margin-top:1rem;">
+        <!-- Carousel main image -->
+        <div class="carousel-main" style="position:relative;overflow:hidden;border-radius:8px;background:#fff;touch-action:pan-y;user-select:none;" id="carousel-container">
+          <img id="carousel-main-img" src="../../images/Screenshot (207).png" alt="Newtonian Gravity screenshot" style="width:100%;height:auto;display:block;opacity:1;transition:opacity 450ms ease;"/>
+        </div>
+
+        <!-- Controls: play/pause, speed slider -->
+        <div style="display:flex;gap:1rem;margin-top:1rem;align-items:center;justify-content:center;flex-wrap:wrap;">
+          <button id="carousel-playpause" style="padding:0.6rem 1.2rem;background:#556B2F;color:#fff;border:0;border-radius:6px;cursor:pointer;font-weight:500;transition:background 300ms;" aria-label="Play/pause carousel">▶ Play</button>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <label for="carousel-speed" style="font-size:0.9rem;font-weight:500;">Speed:</label>
+            <input id="carousel-speed" type="range" min="0.5" max="5" step="0.5" value="3" style="width:120px;cursor:pointer;"/>
+            <span id="carousel-speed-label" style="font-size:0.85rem;color:#666;min-width:2.5rem;">3.0s</span>
+          </div>
+        </div>
+
+        <!-- Thumbnails (display only, not clickable) -->
+        <div class="carousel-thumbs" style="display:flex;gap:0.6rem;margin-top:0.8rem;justify-content:center;flex-wrap:wrap;pointer-events:none;opacity:0.6;">
+          <img src="../../images/Screenshot (207).png" style="width:120px;height:72px;object-fit:cover;border-radius:6px;border:2px solid rgba(0,0,0,0.06);"/>
+          <img src="../../images/Screenshot 2024-07-12 134824.png" style="width:120px;height:72px;object-fit:cover;border-radius:6px;border:2px solid rgba(0,0,0,0.06);"/>
+        </div>
+      </div>
+
+      <script>
+        (function(){
+          const imgs = [
+            '../../images/Screenshot (207).png',
+            '../../images/Screenshot 2024-07-12 134824.png'
+          ];
+          let idx = 0;
+          let playing = true;
+          let delay = 3000;
+          const main = document.getElementById('carousel-main-img');
+          const container = document.getElementById('carousel-container');
+          const thumbs = document.querySelectorAll('.thumb');
+          const playBtn = document.getElementById('carousel-playpause');
+          const speedSlider = document.getElementById('carousel-speed');
+          const speedLabel = document.getElementById('carousel-speed-label');
+          let interval = null;
+          let touchStart = 0;
+
+          function show(i){
+            if (!main) return;
+            const next = imgs[i % imgs.length];
+            main.style.opacity = 0;
+            setTimeout(()=>{
+              main.src = next;
+              main.style.opacity = 1;
+            }, 200);
+            thumbs.forEach(t=> t.style.opacity = '0.6');
+            if (thumbs[i]) thumbs[i].style.opacity = '1';
+            idx = i;
+          }
+
+          function start(){
+            stop();
+            if (!playing) return;
+            interval = setInterval(()=>{
+              show((idx+1) % imgs.length);
+            }, delay);
+          }
+          function stop(){ if (interval) { clearInterval(interval); interval = null; } }
+
+          function togglePlay(){
+            playing = !playing;
+            if (playing){
+              playBtn.textContent = '⏸ Pause';
+              playBtn.style.background = '#556B2F';
+              start();
+            } else {
+              playBtn.textContent = '▶ Play';
+              playBtn.style.background = '#999';
+              stop();
+            }
+          }
+
+          // play/pause button
+          if (playBtn){
+            playBtn.addEventListener('click', togglePlay);
+          }
+
+          // speed slider
+          if (speedSlider){
+            speedSlider.addEventListener('input', (e)=>{
+              delay = parseFloat(e.target.value) * 1000;
+              speedLabel.textContent = delay / 1000 + 's';
+              if (playing) start();
+            });
+          }
+
+          // thumbnail clicks removed - images are display-only
+          // thumbs.forEach((btn, i)=>{
+          //   btn.addEventListener('click', ()=>{ show(i); if (playing) start(); });
+          // });
+
+          // keyboard navigation (arrow left/right, space to pause)
+          document.addEventListener('keydown', (e)=>{
+            if (e.key === 'ArrowLeft'){
+              e.preventDefault();
+              show((idx - 1 + imgs.length) % imgs.length);
+              if (playing) start();
+            } else if (e.key === 'ArrowRight'){
+              e.preventDefault();
+              show((idx + 1) % imgs.length);
+              if (playing) start();
+            } else if (e.key === ' '){
+              e.preventDefault();
+              togglePlay();
+            }
+          });
+
+          // touch swipe support (left = next, right = prev)
+          if (container){
+            container.addEventListener('touchstart', (e)=>{
+              touchStart = e.touches[0].clientX;
+            }, false);
+            container.addEventListener('touchend', (e)=>{
+              const touchEnd = e.changedTouches[0].clientX;
+              const delta = touchStart - touchEnd;
+              if (Math.abs(delta) > 40){
+                if (delta > 0){
+                  show((idx + 1) % imgs.length);
+                } else {
+                  show((idx - 1 + imgs.length) % imgs.length);
+                }
+                if (playing) start();
+              }
+            }, false);
+          }
+
+          // pause on hover
+          const carousel = document.querySelector('.carousel');
+          if (carousel){
+            carousel.addEventListener('mouseenter', stop);
+            carousel.addEventListener('mouseleave', ()=>{ if (playing) start(); });
+          }
+
+          // initial
+          show(0);
+          start();
+        })();
+      </script>
+      <h3 style="margin-top:1rem;">Source & Notes</h3>
+      <p><a href="../../index.html">← Back to portfolio</a></p>
+    </div>
+  </main>
+</body>
+</html>

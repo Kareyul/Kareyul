@@ -1,0 +1,48 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install functions dependencies (if present)
+        run: |
+          if [ -f functions/package.json ]; then
+            npm ci --prefix functions
+          else
+            echo "No functions/package.json; skipping"
+          fi
+
+      - name: Set Firebase Functions config from GitHub Secrets
+        if: ${{ secrets.EMAIL_USER != '' && secrets.EMAIL_PASS != '' }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_DEST: ${{ secrets.EMAIL_DEST }}
+        run: |
+          npx firebase functions:config:set \
+            email.user="$EMAIL_USER" \
+            email.pass="$EMAIL_PASS" \
+            email.dest="$EMAIL_DEST" \
+            --token "$FIREBASE_TOKEN"
+
+      - name: Deploy to Firebase Hosting and Functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: npm run deploy:ci

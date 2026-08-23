@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="100%" height="100%" fill="#F5F5F8"/>
+  <g fill="#556B2F" font-family="Segoe UI, Arial" font-size="42">
+    <text x="60" y="120">Certificate Placeholder</text>
+    <text x="60" y="180" font-size="20">Upload your certificate to replace this image</text>
+  </g>
+  <rect x="80" y="240" width="1040" height="380" fill="#fff" stroke="#9CAF88" stroke-width="6" rx="12"/>
+  <g fill="#9CAF88">
+    <rect x="140" y="320" width="220" height="40" rx="8"/>
+    <rect x="380" y="320" width="220" height="40" rx="8"/>
+    <rect x="620" y="320" width="220" height="40" rx="8"/>
+  </g>
+</svg>
