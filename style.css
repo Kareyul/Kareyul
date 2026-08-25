@@ -1156,6 +1156,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Blog Section */
+.blog-cta-section {
+    background-color: var(--bg-alt);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 4rem 1.5rem;
+}
+
+.blog-cta-content {
+    text-align: center;
+}
+
+.blog-cta-content h2 {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-cta-content p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0 auto 1.5rem;
+    max-width: 560px;
+}
+
+.blog-cta-button {
+    background-color: var(--primary-olive);
+    border: 1px solid var(--primary-olive);
+    border-radius: 30px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition);
+}
+
+.blog-cta-button:hover {
+    background-color: transparent;
+    color: var(--primary-olive);
+}
+
 .blog-page-header {
     padding-top: 150px;
     padding-bottom: 36px;
