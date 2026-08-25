@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
     queryDrilldown();
     // Load Power stats
     loadPowerData();
+
+    const initialPage = window.location.hash === '#power' ? 'power' : window.location.hash === '#dashboard' ? 'dashboard' : 'home';
+    showPage(initialPage);
 });
 
 // Setup tab navigation click listeners

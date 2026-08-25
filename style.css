@@ -683,6 +683,22 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.8;
 }
 
+.data-science-section {
+    background-color: var(--bg-alt);
+}
+
+.data-science-intro {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: -1.5rem auto 2.5rem;
+    max-width: 620px;
+    text-align: center;
+}
+
+.fuel-preview {
+    background: linear-gradient(135deg, var(--primary-olive), var(--light-olive));
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.03);
 }
