@@ -596,7 +596,6 @@ const blogPosts = {
         img: "https://lh3.googleusercontent.com/d/15IYjjbInP-htjFskwHeCzc1Q7ajoBBEi",
         content: `
             <p>"You won't catch me in any clubs, but you'll definitely find me at some coffee shops sitting in the corner alone quietly while sipping my fav drink." I saw this line in a TikTok post, and it made me wonder how much I have changed.</p>
-            <p>Hindi naging madali ang daan. Maraming gabing puyat sa pag-aaral, pagcodes para sa mga simulation, at pagderive ng equations. I don't mean that I don't enjoy hanging out with my friends. I still enjoy their company, our conversations, and the laughter we share; I simply appreciate having quiet time for myself too. Ngunit sa likod ng bawat hirap, mayroong halakhak at mga tagumpay na kasama ang mga kaibigan. Ang mga larawang ito ang patunay na naging masaya at makahulugan ang apat na taon na iyon. Bawat kuha ay may kuwento ng pagsisikap at ligaya.</p>
             <p>But in ten years, I still want to be the same Carl my mom used to know. I hope that even as my habits, places, and the way I spend my time change, I keep the parts of myself that matter. I want to grow without becoming unrecognizable to the people who have always known me.</p>
         `
     }
