@@ -395,7 +395,7 @@ const blogPosts = {
             <p>You spend hours debugging, checking your signs, rewriting loops, and questioning your parameters. You might fill pages of scratch paper with math that leads to a dead end, only to realize you made a simple algebraic error on the second line. But that is exactly what makes the rare moments of success feel so rewarding. When the code finally runs without errors, when the curves on the plot finally line up with the theoretical predictions, it is a quiet, incredibly satisfying feeling. You realize that through all the headaches, you managed to model a small piece of physical reality. That slow, hard-earned clarity is what keeps me sitting at my desk night after night.</p>
         `
     },
-    'black-hole-time-post': {
+    /* 'black-hole-time-post': {
         title: "Why Time Behaves Differently Near a Black Hole",
         meta: "Academic • August 2026 • 8 min read",
         img: "https://lh3.googleusercontent.com/d/1H-YIuIdKzRgPmHtgKyImPlnxpP0jY6ib",
@@ -493,7 +493,7 @@ const blogPosts = {
             <p>That is why time behaves differently near a black hole.</p>
             <p>Not because the universe has found a way to break the clock, but because <strong>the clock has always been part of the universe it is trying to measure.</strong></p>
         `
-    },
+    }, */
     'komorebi-post': {
         title: "Komorebi: The Light that Dances Between Leaves",
         meta: "Personal • August 2026 • 3 min read",
