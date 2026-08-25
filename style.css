@@ -695,64 +695,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.data-science-explainer {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--primary-olive);
-    display: grid;
-    gap: 1.5rem 2rem;
-    grid-template-columns: 1.1fr 1fr 1fr;
-    margin: 0 auto 3rem;
-    max-width: 1120px;
-    padding: 2rem;
-}
-
-.data-science-explainer-heading h3,
-.data-science-explainer-item h4 {
-    color: var(--text-primary);
-    font-family: var(--font-heading);
-}
-
-.data-science-explainer-heading h3 {
-    font-size: 1.45rem;
-    margin-bottom: 0.6rem;
-}
-
-.data-science-explainer-heading p,
-.data-science-explainer-item p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-.explainer-label {
-    color: var(--primary-olive);
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-    margin-bottom: 0.7rem;
-    text-transform: uppercase;
-}
-
-.data-science-explainer-item {
-    display: flex;
-    gap: 0.9rem;
-}
-
-.data-science-explainer-item h4 {
-    font-size: 1.05rem;
-    margin-bottom: 0.45rem;
-}
-
-.explainer-number {
-    color: var(--primary-olive);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding-top: 0.2rem;
-}
-
 .fuel-preview {
     background: linear-gradient(135deg, var(--primary-olive), var(--light-olive));
 }
