@@ -48,6 +48,153 @@ const selectMunicipality = document.getElementById('select-municipality');
 let currentRegion = 'ALL';
 let currentProvince = 'ALL';
 let currentMunicipality = 'ALL';
+let emigrantRecords = [];
+let powerRecords = [];
+
+function parseCsv(csvText) {
+    const lines = csvText.trim().split(/\r?\n/);
+    const headers = lines.shift().split(',');
+    return lines.map(line => {
+        const values = line.split(',');
+        return headers.reduce((record, header, index) => {
+            record[header] = values[index];
+            return record;
+        }, {});
+    });
+}
+
+async function loadStaticEmigrantRecords() {
+    if (emigrantRecords.length) return emigrantRecords;
+    const response = await fetch('../data/cleaned_emigrants.csv');
+    emigrantRecords = parseCsv(await response.text()).map(record => ({
+        region: record.Region,
+        province: record.Province,
+        municipality: record.Municipality,
+        year: Number(record.Year),
+        count: Number(record.Count)
+    }));
+    return emigrantRecords;
+}
+
+function aggregateEmigrantRecords(records, key) {
+    const totals = new Map();
+    records.forEach(record => totals.set(record[key], (totals.get(record[key]) || 0) + record.count));
+    return [...totals.entries()].map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count);
+}
+
+async function getEmigrantData() {
+    try {
+        const response = await fetch('/api/summary');
+        if (response.ok) return response.json();
+    } catch (error) {
+        console.warn('Using static emigrant data:', error.message);
+    }
+    const records = await loadStaticEmigrantRecords();
+    const yearly = aggregateEmigrantRecords(records, 'year').sort((a, b) => a.name - b.name);
+    return {
+        total: records.reduce((sum, record) => sum + record.count, 0),
+        trend: yearly.map(item => ({ year: item.name, count: item.count })),
+        top_regions: aggregateEmigrantRecords(records, 'region').slice(0, 10),
+        top_provinces: aggregateEmigrantRecords(records, 'province').slice(0, 10)
+    };
+}
+
+async function getEmigrantFilters() {
+    try {
+        const response = await fetch('/api/filters');
+        if (response.ok) return response.json();
+    } catch (error) {
+        console.warn('Using static emigrant filters:', error.message);
+    }
+    const records = await loadStaticEmigrantRecords();
+    const regions = [...new Set(records.map(record => record.region))].sort();
+    const regionProvinces = {};
+    const provinceMunicipalities = {};
+    records.forEach(record => {
+        regionProvinces[record.region] = [...new Set([...(regionProvinces[record.region] || []), record.province])].sort();
+        provinceMunicipalities[record.province] = [...new Set([...(provinceMunicipalities[record.province] || []), record.municipality])].sort();
+    });
+    return { regions, region_provinces: regionProvinces, province_municipalities: provinceMunicipalities };
+}
+
+async function getEmigrantQuery() {
+    try {
+        const params = new URLSearchParams({ region: currentRegion, province: currentProvince, municipality: currentMunicipality });
+        const response = await fetch(`/api/query?${params.toString()}`);
+        if (response.ok) return response.json();
+    } catch (error) {
+        console.warn('Using static emigrant query:', error.message);
+    }
+    const records = (await loadStaticEmigrantRecords()).filter(record =>
+        (currentRegion === 'ALL' || record.region === currentRegion) &&
+        (currentProvince === 'ALL' || record.province === currentProvince) &&
+        (currentMunicipality === 'ALL' || record.municipality === currentMunicipality)
+    );
+    const trend = aggregateEmigrantRecords(records, 'year').sort((a, b) => a.name - b.name);
+    const total = records.reduce((sum, record) => sum + record.count, 0);
+    const allRecords = await loadStaticEmigrantRecords();
+    return {
+        total,
+        share: allRecords.reduce((sum, record) => sum + record.count, 0) ? total / allRecords.reduce((sum, record) => sum + record.count, 0) * 100 : 0,
+        trend: trend.map(item => ({ year: item.name, count: item.count })),
+        top_municipalities: currentProvince !== 'ALL' ? aggregateEmigrantRecords(records, 'municipality').slice(0, 10) : [],
+        top_provinces: currentRegion !== 'ALL' && currentProvince === 'ALL' ? aggregateEmigrantRecords(records, 'province').slice(0, 10) : []
+    };
+}
+
+async function loadStaticPowerRecords() {
+    if (powerRecords.length) return powerRecords;
+    const response = await fetch('../data/cleaned_power.csv');
+    powerRecords = parseCsv(await response.text()).map(record => ({
+        year: Number(record.Years),
+        biomass: Number(record.Biomass),
+        coal: Number(record.Coal),
+        geothermal: Number(record.Geothermal),
+        hydro: Number(record.Hydro),
+        natural_gas: Number(record['Natural Gas']),
+        oil_based: Number(record['Oil-based']),
+        solar: Number(record.Solar),
+        wind: Number(record.Wind),
+        grand_total: Number(record['Grand Total']),
+        re_total: Number(record.RE_Total),
+        fossil_total: Number(record.Fossil_Total),
+        re_share_pct: Number(record.RE_Share_Pct)
+    }));
+    return powerRecords;
+}
+
+async function getPowerSummary() {
+    try {
+        const response = await fetch('/api/power/summary');
+        if (response.ok) return response.json();
+    } catch (error) {
+        console.warn('Using static power data:', error.message);
+    }
+    return { records: await loadStaticPowerRecords() };
+}
+
+async function getPowerYear(year) {
+    try {
+        const response = await fetch(`/api/power/query?year=${year}`);
+        if (response.ok) return response.json();
+    } catch (error) {
+        console.warn('Using static power query:', error.message);
+    }
+    const record = (await loadStaticPowerRecords()).find(item => item.year === Number(year));
+    return {
+        grand_total: record.grand_total,
+        sources: [
+            { name: 'Biomass', count: record.biomass },
+            { name: 'Coal', count: record.coal },
+            { name: 'Geothermal', count: record.geothermal },
+            { name: 'Hydro', count: record.hydro },
+            { name: 'Natural Gas', count: record.natural_gas },
+            { name: 'Oil-based', count: record.oil_based },
+            { name: 'Solar', count: record.solar },
+            { name: 'Wind', count: record.wind }
+        ]
+    };
+}
 
 // Initialize SPA
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,31 +206,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Power stats
     loadPowerData();
 
-    const initialPage = window.location.hash === '#power' ? 'power' : window.location.hash === '#dashboard' ? 'dashboard' : 'home';
+    const initialPage = window.location.hash === '#power' ? 'power' : 'dashboard';
     showPage(initialPage);
 });
 
 // Setup tab navigation click listeners
 function setupNavigation() {
     // Top Navbar Navigation
-    navHome.addEventListener('click', () => showPage('home'));
-    navDashboard.addEventListener('click', () => showPage('dashboard'));
-    navPower.addEventListener('click', () => showPage('power'));
-    
-    document.getElementById('btn-goto-dashboard').addEventListener('click', () => showPage('dashboard'));
-    document.getElementById('btn-goto-power').addEventListener('click', () => showPage('power'));
+    if (navHome) navHome.addEventListener('click', () => showPage('home'));
+    if (navDashboard) navDashboard.addEventListener('click', () => showPage('dashboard'));
+    if (navPower) navPower.addEventListener('click', () => showPage('power'));
+    const dashboardButton = document.getElementById('btn-goto-dashboard');
+    const powerButton = document.getElementById('btn-goto-power');
+    if (dashboardButton) dashboardButton.addEventListener('click', () => showPage('dashboard'));
+    if (powerButton) powerButton.addEventListener('click', () => showPage('power'));
 
     // Dashboard Sub-tabs (Emigrants)
-    tabOverview.addEventListener('click', () => showSubTab('overview'));
-    tabDrilldown.addEventListener('click', () => showSubTab('drilldown'));
-    tabInsights.addEventListener('click', () => showSubTab('insights'));
+    if (tabOverview) tabOverview.addEventListener('click', () => showSubTab('overview'));
+    if (tabDrilldown) tabDrilldown.addEventListener('click', () => showSubTab('drilldown'));
+    if (tabInsights) tabInsights.addEventListener('click', () => showSubTab('insights'));
 
     // Power Sub-tabs
-    tabPowerOverview.addEventListener('click', () => showPowerSubTab('overview'));
-    tabPowerYearly.addEventListener('click', () => showPowerSubTab('yearly'));
+    if (tabPowerOverview) tabPowerOverview.addEventListener('click', () => showPowerSubTab('overview'));
+    if (tabPowerYearly) tabPowerYearly.addEventListener('click', () => showPowerSubTab('yearly'));
 
     // Dropdown Select Listeners - Emigrants
-    selectRegion.addEventListener('change', (e) => {
+    if (selectRegion) selectRegion.addEventListener('change', (e) => {
         currentRegion = e.target.value;
         currentProvince = 'ALL';
         currentMunicipality = 'ALL';
@@ -91,20 +239,20 @@ function setupNavigation() {
         queryDrilldown();
     });
 
-    selectProvince.addEventListener('change', (e) => {
+    if (selectProvince) selectProvince.addEventListener('change', (e) => {
         currentProvince = e.target.value;
         currentMunicipality = 'ALL';
         updateMunicipalityDropdown();
         queryDrilldown();
     });
 
-    selectMunicipality.addEventListener('change', (e) => {
+    if (selectMunicipality) selectMunicipality.addEventListener('change', (e) => {
         currentMunicipality = e.target.value;
         queryDrilldown();
     });
 
     // Dropdown Select Listeners - Power
-    selectPowerYear.addEventListener('change', (e) => {
+    if (selectPowerYear) selectPowerYear.addEventListener('change', (e) => {
         queryPowerYearly(e.target.value);
     });
 }
@@ -117,7 +265,7 @@ function showPage(page) {
         { name: 'power', el: pagePower, btn: navPower }
     ];
 
-    pages.forEach(p => {
+    pages.filter(p => p.el && p.btn).forEach(p => {
         if (p.name === page) {
             p.el.classList.remove('hidden');
             p.btn.className = "px-3 py-2 rounded-md text-sm font-medium text-blue-600 bg-blue-50 border border-blue-200 transition-colors";
@@ -168,8 +316,7 @@ function showPowerSubTab(tab) {
 // Load National Overview Data
 async function loadOverviewData() {
     try {
-        const response = await fetch('/api/summary');
-        const data = await response.json();
+        const data = await getEmigrantData();
         
         if (data.error) {
             console.error(data.error);
@@ -306,8 +453,7 @@ function renderOverviewRankings(regions, provinces) {
 // Load Dropdown Hierarchy Filters
 async function loadFiltersData() {
     try {
-        const response = await fetch('/api/filters');
-        filtersData = await response.json();
+        filtersData = await getEmigrantFilters();
 
         // Populate regions dropdown
         filtersData.regions.forEach(reg => {
@@ -393,8 +539,7 @@ async function queryDrilldown() {
             municipality: currentMunicipality
         });
         
-        const response = await fetch(`/api/query?${queryParams.toString()}`);
-        const data = await response.json();
+        const data = await getEmigrantQuery();
 
         // Update KPIs
         document.getElementById('drilldown-kpi-total').innerText = Number(data.total).toLocaleString();
@@ -504,8 +649,7 @@ function renderDrilldownRankingChart(items, color) {
 // Load Power Overview data
 async function loadPowerData() {
     try {
-        const response = await fetch('/api/power/summary');
-        const data = await response.json();
+        const data = await getPowerSummary();
 
         if (data.error) {
             console.error("Error from C++ engine:", data.error);
@@ -664,8 +808,7 @@ function renderPowerReShareChart(records) {
 // Fetch breakdown statistics for selected power year
 async function queryPowerYearly(year) {
     try {
-        const response = await fetch(`/api/power/query?year=${year}`);
-        const data = await response.json();
+        const data = await getPowerYear(year);
 
         if (data.error) {
             console.error("Yearly Query Error:", data.error);
