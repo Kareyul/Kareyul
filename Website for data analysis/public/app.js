@@ -53,9 +53,30 @@ let powerRecords = [];
 
 function parseCsv(csvText) {
     const lines = csvText.trim().split(/\r?\n/);
-    const headers = lines.shift().split(',');
+    const parseLine = line => {
+        const values = [];
+        let value = '';
+        let quoted = false;
+        for (let index = 0; index < line.length; index++) {
+            const character = line[index];
+            if (character === '"' && line[index + 1] === '"' && quoted) {
+                value += '"';
+                index++;
+            } else if (character === '"') {
+                quoted = !quoted;
+            } else if (character === ',' && !quoted) {
+                values.push(value);
+                value = '';
+            } else {
+                value += character;
+            }
+        }
+        values.push(value);
+        return values;
+    };
+    const headers = parseLine(lines.shift());
     return lines.map(line => {
-        const values = line.split(',');
+        const values = parseLine(line);
         return headers.reduce((record, header, index) => {
             record[header] = values[index];
             return record;
