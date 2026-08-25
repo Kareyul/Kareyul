@@ -1513,6 +1513,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-text p {
     margin-bottom: 1.2rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .modal-text p:last-child {
