@@ -596,6 +596,9 @@ const blogPosts = {
         img: "https://lh3.googleusercontent.com/d/15IYjjbInP-htjFskwHeCzc1Q7ajoBBEi",
         content: `
             <p>"You won't catch me in any clubs, but you'll definitely find me at some coffee shops sitting in the corner alone quietly while sipping my fav drink." I saw this line in a TikTok post, and it made me wonder how much I have changed.</p>
+            <p>There was a time when I thought I always had to be surrounded by people to feel that I belonged. I would say yes to plans even when I was tired, and I sometimes measured the quality of my days by how much time I spent outside. Now, I am more comfortable admitting when I need a slower day. I no longer see rest or solitude as something I have to explain.</p>
+            <p>That change did not happen all at once. It came through small decisions: choosing a quiet coffee shop, spending an afternoon with my thoughts, or going home instead of forcing myself to stay somewhere I no longer wanted to be. I still value the people in my life, but I have also learned that being present for others is easier when I make time to be present for myself.</p>
+            <p>Maybe this is what growing up looks like for me. It is not about becoming distant or leaving everything familiar behind. It is about understanding my own needs more clearly, allowing my interests to change, and finding comfort in a life that does not always have to be loud. The person I am becoming may have different habits, but the same care and sincerity can still remain.</p>
             <p>But in ten years, I still want to be the same Carl my mom used to know. I hope that even as my habits, places, and the way I spend my time change, I keep the parts of myself that matter. I want to grow without becoming unrecognizable to the people who have always known me.</p>
         `
     }
