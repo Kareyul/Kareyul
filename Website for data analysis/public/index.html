@@ -24,6 +24,10 @@
         .data-guide-label { color: #566c46; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
         .data-guide p { color: #626a5c; line-height: 1.65; }
         .data-guide h2, .data-guide h3 { color: #1c2217; }
+        .data-story { background: #eef2e9; border: 1px solid #d9e2d2; border-left: 4px solid #566c46; }
+        .data-story-label { color: #566c46; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        .data-story p { color: #626a5c; line-height: 1.7; }
+        .data-story h3 { color: #1c2217; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
@@ -105,12 +109,20 @@
                     </div>
                 </div>
 
-                <!-- Main Trend Line Chart -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">Emigration Trend Over Time (1988 - 2020)</h3>
-                    <div class="h-80 w-full relative">
-                        <canvas id="chart-trend"></canvas>
+                <!-- Main Trend Line Chart and Interpretation -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                    <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Emigration Trend Over Time (1988 - 2020)</h3>
+                        <div class="h-80 w-full relative">
+                            <canvas id="chart-trend"></canvas>
+                        </div>
                     </div>
+                    <aside class="data-story rounded-xl p-6 shadow-sm">
+                        <span class="data-story-label">What is happening?</span>
+                        <h3 class="text-lg font-bold mt-2 mb-3">The pattern in everyday terms</h3>
+                        <p class="text-sm mb-3">The chart tracks the number of registered emigrants each year. A higher point means more people were recorded as leaving the Philippines in that year.</p>
+                        <p class="text-sm">Records generally rise toward the mid-2010s, then fall sharply in 2020. That final drop reflects the disruption caused by the COVID-19 pandemic, including travel restrictions and closed offices.</p>
+                    </aside>
                 </div>
 
                 <!-- Horizontal Rankings Grid -->
@@ -272,12 +284,20 @@
                     </div>
                 </div>
 
-                <!-- Combined Generation Line Chart -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">Total Electricity Generation & Transition (GWh)</h3>
-                    <div class="h-80 w-full relative">
-                        <canvas id="chart-power-trend"></canvas>
+                <!-- Combined Generation Line Chart and Interpretation -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                    <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Total Electricity Generation &amp; Transition (GWh)</h3>
+                        <div class="h-80 w-full relative">
+                            <canvas id="chart-power-trend"></canvas>
+                        </div>
                     </div>
+                    <aside class="data-story rounded-xl p-6 shadow-sm">
+                        <span class="data-story-label">What is happening?</span>
+                        <h3 class="text-lg font-bold mt-2 mb-3">The energy story</h3>
+                        <p class="text-sm mb-3">The chart compares total electricity production with the amount produced by fossil fuels and renewable sources. Growing lines mean more electricity was generated.</p>
+                        <p class="text-sm">Total production expands over time, while the renewable share shows how much of that electricity comes from sources such as hydro, geothermal, solar, wind, and biomass.</p>
+                    </aside>
                 </div>
 
                 <!-- RE Share percentage line chart -->
