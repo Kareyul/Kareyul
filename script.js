@@ -395,6 +395,105 @@ const blogPosts = {
             <p>You spend hours debugging, checking your signs, rewriting loops, and questioning your parameters. You might fill pages of scratch paper with math that leads to a dead end, only to realize you made a simple algebraic error on the second line. But that is exactly what makes the rare moments of success feel so rewarding. When the code finally runs without errors, when the curves on the plot finally line up with the theoretical predictions, it is a quiet, incredibly satisfying feeling. You realize that through all the headaches, you managed to model a small piece of physical reality. That slow, hard-earned clarity is what keeps me sitting at my desk night after night.</p>
         `
     },
+    'black-hole-time-post': {
+        title: "Why Time Behaves Differently Near a Black Hole",
+        meta: "Academic • August 2026 • 8 min read",
+        img: "https://lh3.googleusercontent.com/d/1H-YIuIdKzRgPmHtgKyImPlnxpP0jY6ib",
+        content: `
+            <h2>Why Time Behaves Differently Near a Black Hole</h2>
+            <blockquote><strong>“Time is relative.” — Albert Einstein</strong></blockquote>
+            <p>We often think of time as the one thing in the universe that never changes. A second is a second, an hour is an hour, and a day is a day. No matter where we are, we intuitively imagine that time flows at the same rate for everyone. This idea is so deeply connected to our everyday experience that it is difficult to imagine anything else. Yet, more than a century ago, Albert Einstein showed that this simple picture of time is not quite correct. Time is not universal. It depends on the observer, their motion, and even the gravitational environment in which they exist.</p>
+            <p>One of the most fascinating places where this becomes apparent is near a black hole.</p>
+            <p>A black hole is often described as an object with gravity so strong that not even light can escape from it. While this is true, it does not fully capture what makes black holes remarkable. A black hole does not simply pull objects inward; it profoundly changes the geometry of spacetime around it. Because time is part of spacetime, the passage of time itself is affected.</p>
+            <p>This phenomenon is known as <strong>gravitational time dilation</strong>.</p>
+            <p>To understand it, imagine two people with identical clocks. One person remains far away from a black hole, while the other travels toward it. They synchronize their clocks before separating. From the perspective of the person far away, the clock carried by the person approaching the black hole begins to run more slowly. The closer the person gets to the black hole, the greater the difference becomes.</p>
+            <p>At first, this sounds as though the clock itself is being physically damaged by gravity. But that is not what is happening. If the person near the black hole looks at their own clock, everything appears perfectly normal. Their seconds still feel like seconds, their heartbeat feels normal, and their thoughts proceed normally. The difference only becomes apparent when their clock is compared with another clock located farther away.</p>
+            <p>The reason lies in Einstein's theory of <strong>general relativity</strong>.</p>
+            <p>Before Einstein, Newtonian physics treated space and time as essentially separate and absolute. Time was imagined as something that flowed uniformly throughout the universe. Einstein's theory replaced this picture with the idea of <strong>spacetime</strong>—a four-dimensional combination of three dimensions of space and one dimension of time.</p>
+            <p>Matter and energy influence the geometry of spacetime, and that geometry determines how objects and light move through it.</p>
+            <p>Einstein expressed this relationship mathematically through his famous field equation:</p>
+            <p class="blog-equation">Gμν = (8πG / c⁴) Tμν</p>
+            <p>Although the equation looks intimidating, its basic idea can be expressed much more simply:</p>
+            <p class="blog-equation"><strong>Matter and energy curve spacetime.</strong></p>
+            <p>The left side describes the geometry of spacetime, while the right side describes matter and energy. A massive object such as Earth therefore changes the geometry around it. A star produces a stronger effect. A black hole produces an extreme distortion of spacetime.</p>
+            <p>And because time is part of spacetime, the geometry of spacetime affects how different observers measure elapsed time.</p>
+            <p>We can see this mathematically by considering a simple black hole: a <strong>non-rotating, uncharged black hole</strong>, described by the Schwarzschild solution. The Schwarzschild metric is:</p>
+            <p class="blog-equation">ds² = −(1 − 2GM/rc²)c²dt² + (1 − 2GM/rc²)⁻¹dr² + r²dΩ²</p>
+            <p>For someone unfamiliar with relativity, this equation may look complicated, but we do not need to understand every part of it to understand the central idea. The important factor is:</p>
+            <p class="blog-equation">1 − 2GM/rc²</p>
+            <p>Here, G is the gravitational constant, M is the mass of the black hole, r is the distance from its center, and c is the speed of light.</p>
+            <p>If an observer remains at a fixed distance from the black hole, the spatial-motion terms can be ignored for the moment. The relationship between the time measured by that observer's own clock, called <strong>proper time</strong> (dτ), and the time coordinate (dt) used by a distant observer becomes:</p>
+            <p class="blog-equation"><strong>dτ = √(1 − 2GM/rc²) dt</strong></p>
+            <p>This equation is one of the simplest ways to see gravitational time dilation.</p>
+            <p>The quantity dτ represents the small amount of time measured by the clock near the black hole. The quantity dt represents the corresponding time coordinate associated with a distant observer. The square-root factor determines how different the two measurements are.</p>
+            <p>Far away from the black hole, r is very large. In that situation:</p>
+            <p class="blog-equation">2GM/rc² ≈ 0</p>
+            <p>so the equation becomes approximately:</p>
+            <p class="blog-equation">dτ ≈ dt</p>
+            <p>In other words, far from the black hole, the difference is extremely small.</p>
+            <p>As the observer moves closer, however, r becomes smaller. The quantity 2GM/rc² becomes larger, causing the square-root factor to become smaller. Therefore:</p>
+            <p class="blog-equation">dτ &lt; dt</p>
+            <p>The clock closer to the black hole accumulates less proper time compared with the distant observer.</p>
+            <p>We can illustrate this without using a real black hole. Suppose the gravitational time-dilation factor at some location were:</p>
+            <p class="blog-equation">√(1 − 2GM/rc²) = 0.5</p>
+            <p>Then:</p>
+            <p class="blog-equation">dτ = 0.5 dt</p>
+            <p>If one hour passes according to the distant observer, only thirty minutes pass according to the clock near the black hole.</p>
+            <p>The person near the black hole would not experience those thirty minutes as being unusually slow. Their clock would still appear completely normal to them. If they waited for one minute according to their own clock, they would experience exactly one normal minute.</p>
+            <p>This is one of the most important ideas in relativity: <strong>there is no contradiction in two observers experiencing different amounts of elapsed time.</strong></p>
+            <p>The difference becomes especially dramatic near the black hole's <strong>event horizon</strong>.</p>
+            <p>For a non-rotating, uncharged black hole, the event horizon is located at the Schwarzschild radius:</p>
+            <p class="blog-equation"><strong>rₛ = 2GM/c²</strong></p>
+            <p>This equation tells us something remarkable. The Schwarzschild radius depends only on the mass of the black hole. The more massive the black hole, the larger its event horizon.</p>
+            <p>For example, if an object were compressed sufficiently so that its mass occupied a region smaller than its Schwarzschild radius, an event horizon would form.</p>
+            <p>As r approaches rₛ, the time-dilation factor √(1 − 2GM/rc²) approaches zero. In Schwarzschild coordinates, a distant observer therefore sees a clock approaching the event horizon become increasingly slow.</p>
+            <p>This is where the popular idea that <strong>“time stops at a black hole”</strong> comes from.</p>
+            <p>However, saying that time literally stops at the event horizon can be misleading.</p>
+            <p>Imagine an astronaut falling toward a black hole. From the perspective of a distant observer, the astronaut appears to slow down as they approach the event horizon. The light coming from the astronaut also becomes increasingly redshifted and delayed. Eventually, the distant observer receives signals from the astronaut that are extraordinarily stretched and faint.</p>
+            <p>But the astronaut experiences something very different.</p>
+            <p>According to their own clock, time continues normally. They do not suddenly freeze when crossing the event horizon. They experience a finite amount of proper time during their journey and, for a sufficiently large black hole, could cross the event horizon without noticing anything particularly special at that exact location.</p>
+            <p>This apparent contradiction is resolved by recognizing that <strong>the distant observer and the falling astronaut are not measuring the same notion of elapsed time</strong>.</p>
+            <p>The distant observer's coordinate description makes the crossing appear to take an infinitely long amount of time, while the astronaut's proper time tells them that the crossing occurs after a finite duration.</p>
+            <p>This distinction between coordinate time and proper time is essential to understanding black holes.</p>
+            <p>It also reveals something profound about the nature of time itself.</p>
+            <p>Time is not a universal clock hanging somewhere in the background of the universe. Every observer carries their own clock, and that clock measures the amount of proper time along their particular path through spacetime. Two observers can begin together, separate, follow different paths, and later reunite having experienced different amounts of elapsed time.</p>
+            <p>This idea is not restricted to black holes.</p>
+            <p>Earth itself produces gravitational time dilation. A clock closer to Earth's surface experiences a slightly stronger gravitational field than a clock farther away. Consequently, the clocks do not tick at exactly the same rate.</p>
+            <p>The difference is extremely small under ordinary conditions, but modern technology has to account for it. Satellite navigation systems, for example, rely on extremely precise clocks, and relativistic effects must be included to maintain accurate positioning.</p>
+            <p>Black holes simply provide an environment where this otherwise tiny effect becomes extraordinarily large.</p>
+            <p>There is another important point worth emphasizing. When physicists say that time “slows down” near a black hole, they do not mean that gravity is physically slowing the mechanisms inside a clock. If we placed an atomic clock near the black hole, its atoms would still behave normally according to their local environment. A mechanical clock would still tick normally. A person's heartbeat would still feel normal.</p>
+            <p>The difference exists when we compare measurements made at different locations in curved spacetime.</p>
+            <p>In this sense, gravitational time dilation is not really about clocks.</p>
+            <p><strong>It is about spacetime itself.</strong></p>
+            <p>This is what makes the phenomenon so profound.</p>
+            <p>A clock is simply a device that counts physical processes. If time itself were universal, every clock everywhere would always agree after being synchronized. General relativity tells us that this is not the case. The geometry of spacetime determines how much proper time passes along different paths.</p>
+            <p>We can therefore think of the equation dτ = √(1 − 2GM/rc²) dt not merely as an equation describing a clock, but as an equation describing how spacetime relates the experiences of different observers.</p>
+            <p>The closer we move toward a black hole, the more dramatically the geometry of spacetime affects the relationship between their clocks.</p>
+            <p>This leads to an extraordinary thought experiment.</p>
+            <p>Imagine that Alice travels close to a massive black hole while Bob remains far away. Alice spends what she experiences as one hour near the black hole before returning. Depending on the circumstances, Bob could experience much more time during the same journey.</p>
+            <p>Alice might return to find that years have passed for Bob while she has aged by only a much smaller amount.</p>
+            <p>The idea sounds like science fiction, but the underlying physics comes directly from general relativity. The practical problem is that remaining extremely close to a black hole without falling through the event horizon would require enormous acceleration, and real black-hole environments are far more complicated than the simple idealized equations suggest.</p>
+            <p>Nevertheless, the principle remains.</p>
+            <p>Different paths through spacetime can contain different amounts of proper time.</p>
+            <p>And this brings us back to Einstein's simple statement:</p>
+            <blockquote><strong>“Time is relative.”</strong></blockquote>
+            <p>It is easy to interpret those words as simply meaning that different people have different opinions about time. That is not what Einstein meant.</p>
+            <p>He meant something much deeper.</p>
+            <p>The amount of time that passes between events can depend on the observer's motion and position in a gravitational field. There is no single universal clock that dictates exactly how much time must pass for everyone in the universe.</p>
+            <p>Near a black hole, this principle becomes impossible to ignore.</p>
+            <p>The black hole bends spacetime so intensely that the difference between the passage of time for observers at different locations can become enormous. Light becomes strongly redshifted. Clocks separated by different gravitational environments accumulate different amounts of proper time. And the event horizon creates a boundary beyond which information cannot escape to the distant universe.</p>
+            <p>Yet perhaps the most fascinating lesson is not that <strong>time becomes slow near a black hole</strong>.</p>
+            <p>It is that there is no single universal rate at which time must flow in the first place.</p>
+            <p>For each observer, their own clock always seems normal. Their own second remains a second. Their own heartbeat remains a heartbeat. What changes is the relationship between their experience and the experience of another observer following a different path through spacetime.</p>
+            <p>A black hole therefore does more than challenge our understanding of gravity. It challenges our most basic intuition about reality.</p>
+            <p>We grow up believing that space is simply the place where things happen and that time is the universal clock that tells us when they happen. Einstein showed us that this picture is incomplete.</p>
+            <p>Space and time are connected.</p>
+            <p>Gravity changes spacetime.</p>
+            <p>And because time is part of spacetime, <strong>gravity changes the way time is experienced and measured.</strong></p>
+            <p>That is why time behaves differently near a black hole.</p>
+            <p>Not because the universe has found a way to break the clock, but because <strong>the clock has always been part of the universe it is trying to measure.</strong></p>
+        `
+    },
     'komorebi-post': {
         title: "Komorebi: The Light that Dances Between Leaves",
         meta: "Personal • August 2026 • 3 min read",
