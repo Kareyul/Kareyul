@@ -1156,6 +1156,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Blog Section */
+.blog-page-header {
+    padding-top: 150px;
+    padding-bottom: 36px;
+}
+
+.blog-page-header .section-title {
+    margin-bottom: 1rem;
+}
+
+.section-kicker {
+    color: var(--primary-olive);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.blog-intro {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 680px;
+}
+
+.blog-page-content {
+    padding-top: 36px;
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));

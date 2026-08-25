@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog &amp; Reflections — John Carl Camacho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">John Carl Camacho</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#education" class="nav-link">Education &amp; Scholarships</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="index.html#experiences" class="nav-link">Experience</a></li>
+                <li><a href="blog.html" class="nav-link" aria-current="page">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><button id="theme-toggle" class="nav-link" aria-pressed="false" title="Toggle theme">☀️</button></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section alternate-bg blog-page-header">
+            <div class="container">
+                <p class="section-kicker">Notes from the edge of research and ordinary life</p>
+                <h1 class="section-title">Blog &amp; Reflections</h1>
+                <p class="blog-intro">Writing about physics, patience, memory, and the small moments that make a life feel legible.</p>
+            </div>
+        </section>
+
+        <section class="section alternate-bg blog-page-content">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-card slide-up">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/15IYjjbInP-htjFskwHeCzc1Q7ajoBBEi');">
+                            <span class="blog-tag">Personal</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Personal • August 2026 • 3 min read</span>
+                            <h3>Marahil pati aninong ito, ay nagbago na</h3>
+                            <p class="excerpt">A reflection on changing habits, quiet coffee-shop afternoons, and staying connected to the Carl my mom used to know.</p>
+                            <button class="blog-btn" onclick="openBlogModal('changed-habits-post')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <article class="blog-card slide-up">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/1aETEUnCPy9J3RS-o7h8v_GTsoitA1p3s');">
+                            <span class="blog-tag">Academic</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Academic • August 2026 • 4 min read</span>
+                            <h3>The Art of Embracing Frustration: What Studying Physics is Really Like</h3>
+                            <p class="excerpt">A personal reflection on the shift from solving textbook equations to modeling gravitational spikes and finding beauty in the mathematical struggle.</p>
+                            <button class="blog-btn" onclick="openBlogModal('academic-post')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <article class="blog-card slide-up">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/15eM1rKWwpZkz3Fvy4iRs4mRuMRxETTQH');">
+                            <span class="blog-tag">Personal</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Personal • August 2026 • 3 min read</span>
+                            <h3>Komorebi: The Light that Dances Between Leaves</h3>
+                            <p class="excerpt">A reflection on watching light filter through tree canopies, and the quiet clarity it brings to an analytical mind.</p>
+                            <button class="blog-btn" onclick="openBlogModal('komorebi-post')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <article class="blog-card slide-up">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/1Dg68hA9E9maHs4B95H0EYyadElJjIVbb');">
+                            <span class="blog-tag">Personal</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Personal • July 2026 • 3 min read</span>
+                            <h3>The Ringing of Silence: Thoughts on Tinnitus</h3>
+                            <p class="excerpt">Exploring the persistent frequency of silence and finding peace with the constant hum inside the room.</p>
+                            <button class="blog-btn" onclick="openBlogModal('tinnitus-post')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <article class="blog-card slide-up">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/1atFJEVCO1X9yINlAr6d56PVAfPtbhxFO');">
+                            <span class="blog-tag">Personal</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Personal • June 2026 • 3 min read</span>
+                            <h3>Sonder on a Train: Space-Time and Connection</h3>
+                            <p class="excerpt">A poem reflecting on the complex orbits of eight billion lives and the impact of the few people who define our existence.</p>
+                            <button class="blog-btn" onclick="openBlogModal('train-post')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <article class="blog-card slide-up">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/1Kvbj5rGJoZPvoR56OM2ifwv1sBmWP6ZS');">
+                            <span class="blog-tag">Personal</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Personal • August 2026 • 3 min read</span>
+                            <h3>Privilege of the Moment: Thoughts on Our Epoch</h3>
+                            <p class="excerpt">A personal reflection on stopping to watch a vibrant orange sunset, and the quiet privilege of being alive to witness it.</p>
+                            <button class="blog-btn" onclick="openBlogModal('epoch-post')">Read Article</button>
+                        </div>
+                    </article>
+
+                    <article class="blog-card slide-up" id="pup-blog-card">
+                        <div class="blog-image" style="background-image: url('https://lh3.googleusercontent.com/d/1mrGtdU1wxrwaxlw63338d5DtwF8B4Bu_');">
+                            <span class="blog-tag">Personal</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-meta">Personal • August 2026 • 3 min read</span>
+                            <h3>Apat na taon, PUP!</h3>
+                            <p class="excerpt">Isang taos-pusong pagbabalik-tanaw sa apat na taon ng pag-aaral ng liknayan sa PUP, at ang mga alaalang naging patunay ng makulay na paglalakbay.</p>
+                            <button class="blog-btn" onclick="openBlogModal('pup-post')">Read Article</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> John Carl Camacho. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/john-carl-camacho-a2b854389" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/jankareulcamacho" class="social-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="index.html" class="social-link">Portfolio</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="blog-modal" class="modal-overlay" onclick="closeBlogModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeBlogModal(event)" aria-label="Close article">&times;</button>
+            <div class="modal-img-container">
+                <img id="modal-img" src="" alt="Blog Post Image">
+            </div>
+            <div class="modal-body">
+                <span class="modal-meta" id="modal-meta"></span>
+                <h2 class="modal-title" id="modal-title"></h2>
+                <div class="modal-text" id="modal-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
