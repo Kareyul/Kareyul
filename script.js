@@ -416,7 +416,7 @@ const blogPosts = {
         `
     },
     'train-post': {
-        title: "Sonder on a Train: Space-Time and Connection to existence and connection",
+        title: "Sonder on a Train",
         meta: "Personal • June 2026 • 3 min read",
         img: "https://lh3.googleusercontent.com/d/1atFJEVCO1X9yINlAr6d56PVAfPtbhxFO",
         content: `
