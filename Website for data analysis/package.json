@@ -1,0 +1,12 @@
+{
+  "name": "website-for-data-analysis",
+  "version": "1.0.0",
+  "description": "Interactive data analysis website for emigrant statistics using C++ query engine and Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -657,6 +657,32 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
 }
 
+.data-analysis-preview {
+    align-items: center;
+    background: linear-gradient(135deg, var(--dark-olive), var(--primary-olive));
+    color: var(--bg-page);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.data-analysis-preview-mark {
+    border: 1px solid currentColor;
+    font-family: var(--font-mono);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 0.55rem 0.8rem;
+}
+
+.data-analysis-preview span {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
 .project-card:hover .project-image img {
     transform: scale(1.03);
 }

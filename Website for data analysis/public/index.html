@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Carl Camacho Data Science Projects</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for beautiful interactive canvas charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #faf9f6; color: #1c2217; }
+        header { background-color: rgba(250, 249, 246, 0.94) !important; border-color: rgba(42, 60, 30, 0.12) !important; }
+        .text-blue-600 { color: #2a3c1e !important; }
+        .bg-blue-50 { background-color: #eef2e9 !important; }
+        .border-blue-200 { border-color: #cbd8c2 !important; }
+        .bg-blue-600 { background-color: #2a3c1e !important; }
+        .hover\:bg-blue-700:hover { background-color: #17240f !important; }
+        .border-blue-500 { border-color: #566c46 !important; }
+        .focus\:ring-blue-500:focus { --tw-ring-color: #566c46 !important; }
+        .focus\:border-blue-500:focus { border-color: #566c46 !important; }
+        .text-green-600 { color: #566c46 !important; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <h1 class="text-xl font-bold tracking-tight text-gray-900">John Carl Camacho Data Science Projects</h1>
+            </div>
+            <!-- Tab Buttons -->
+            <nav class="flex space-x-4 items-center">
+                <a href="../../../index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors">Portfolio</a>
+                <button id="nav-home" class="px-3 py-2 rounded-md text-sm font-medium text-blue-600 bg-blue-50 border border-blue-200 transition-colors">Home</button>
+                <button id="nav-dashboard" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors">🇵🇭 Emigrants Dashboard</button>
+                <button id="nav-power" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors">⚡ Power Dashboard</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <section id="page-home" class="space-y-8">
+
+            <!-- Featured Projects Grid -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">📂 Featured Projects</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 Card -->
+                    <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center space-x-2 text-blue-600 font-semibold mb-2">
+                                <span>🇵🇭</span>
+                                <span>Historical Statistics</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Philippine Emigrant Statistics (1988 - 2020)</h4>
+                            <p class="text-gray-600 mb-4">
+                                An interactive dashboard analyzing over 2.1 million registered emigrant records from the Commission on Filipinos Overseas. Includes detailed geographic drill-downs and historical insights.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">C++ Query Engine</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Node.js</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Chart.js</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <button id="btn-goto-dashboard" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center text-sm">
+                                Open Dashboard 🚀
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 Card -->
+                    <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center space-x-2 text-yellow-600 font-semibold mb-2">
+                                <span>⚡</span>
+                                <span>Power Generation Mix</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Philippines Power Generation (1990 - 2020)</h4>
+                            <p class="text-gray-600 mb-4">
+                                An interactive profile of the Philippines' electricity generation sources, tracking the balance and transition between Fossil Fuels and Renewable Energy over a 30-year span.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">C++ Query Engine</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Node.js</span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Chart.js</span>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4 bg-gray-50 border-t border-gray-100">
+                            <button id="btn-goto-power" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center text-sm">
+                                Open Dashboard ⚡
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- ================= PAGE 2: DASHBOARD PAGE ================= -->
+        <section id="page-dashboard" class="hidden space-y-6">
+            
+            <!-- Dashboard Page Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-150 pb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">🇵🇭 Philippine Emigration Statistics (1988 - 2020)</h2>
+                    <p class="text-sm text-gray-500 mt-1">Analyzing 2.18 Million Registered Emigrant Records by Geographic Origin</p>
+                </div>
+                <div class="text-xs text-gray-500 mt-2 md:mt-0 bg-blue-50 border border-blue-200 rounded-lg p-2.5 shadow-sm">
+                    <strong>Data Source:</strong> <a href="https://data.gov.ph/index/public/dataset/Commission%20of%20Filipino%20Overseas:%20Statistical%20Profile%20Of%20Registered%20Filipino%20Emigrants%20%5B1981-2020%5D/q8o5akrp-ers2-7hag-m3ds-h7eki6wqhqs9" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Commission on Filipinos Overseas (via data.gov.ph)</a>
+                </div>
+            </div>
+            <!-- Dashboard Menu / Sub-tabs -->
+            <div class="border-b border-gray-200">
+                <div class="flex space-x-8">
+                    <button id="subtab-overview" class="border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600">National Overview</button>
+                    <button id="subtab-drilldown" class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Geographic Drilldown</button>
+                    <button id="subtab-insights" class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Insights & Analysis</button>
+                </div>
+            </div>
+
+            <!-- ================= SUB-TAB: OVERVIEW ================= -->
+            <div id="section-overview" class="space-y-6">
+                <!-- KPI Dashboard Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Total Registered Emigrants</span>
+                        <span id="kpi-total" class="text-2xl font-bold text-gray-900 mt-2">Loading...</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Yearly Average</span>
+                        <span id="kpi-avg" class="text-2xl font-bold text-gray-900 mt-2">Loading...</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Peak Emigration Year</span>
+                        <span id="kpi-peak" class="text-2xl font-bold text-gray-900 mt-2">Loading...</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Lowest Emigration Year</span>
+                        <span id="kpi-lowest" class="text-2xl font-bold text-gray-900 mt-2">Loading...</span>
+                    </div>
+                </div>
+
+                <!-- Main Trend Line Chart -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Emigration Trend Over Time (1988 - 2020)</h3>
+                    <div class="h-80 w-full relative">
+                        <canvas id="chart-trend"></canvas>
+                    </div>
+                </div>
+
+                <!-- Horizontal Rankings Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Top 10 Regions of Origin</h3>
+                        <div class="h-80 w-full relative">
+                            <canvas id="chart-regions"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Top 10 Provinces of Origin</h3>
+                        <div class="h-80 w-full relative">
+                            <canvas id="chart-provinces"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= SUB-TAB: DRILLDOWN ================= -->
+            <div id="section-drilldown" class="hidden space-y-6">
+                <!-- Dropdown Selector Bars -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label for="select-region" class="block text-sm font-semibold text-gray-700 mb-2">Region</label>
+                        <select id="select-region" class="w-full border border-gray-300 rounded-lg p-2.5 bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="ALL">All Regions</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="select-province" class="block text-sm font-semibold text-gray-700 mb-2">Province</label>
+                        <select id="select-province" disabled class="w-full border border-gray-300 rounded-lg p-2.5 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50">
+                            <option value="ALL">All Provinces</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="select-municipality" class="block text-sm font-semibold text-gray-700 mb-2">City / Municipality</label>
+                        <select id="select-municipality" disabled class="w-full border border-gray-300 rounded-lg p-2.5 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50">
+                            <option value="ALL">All Municipalities</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Custom Selection Header and Mini KPIs -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4">
+                    <h3 id="drilldown-title" class="text-xl font-bold text-gray-900">Analysis: All Regions</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-gray-100 pt-4">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Total Emigrants</span>
+                            <span id="drilldown-kpi-total" class="text-xl font-bold text-blue-600 mt-1">Loading...</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Peak Year</span>
+                            <span id="drilldown-kpi-peak" class="text-xl font-bold text-gray-800 mt-1">Loading...</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Share of National Emigration</span>
+                            <span id="drilldown-kpi-share" class="text-xl font-bold text-gray-800 mt-1">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtered Selection Trend Line Graph -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Specific Emigration Trend</h3>
+                    <div class="h-80 w-full relative">
+                        <canvas id="chart-drilldown-trend"></canvas>
+                    </div>
+                </div>
+
+                <!-- Rankings inside Selection (Visible only when relevant) -->
+                <div id="selection-rankings-container" class="hidden bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 id="ranking-title" class="text-lg font-bold text-gray-900 mb-4">Top Contributive Locations</h3>
+                    <div class="h-80 w-full relative">
+                        <canvas id="chart-drilldown-ranking"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= SUB-TAB: INSIGHTS ================= -->
+            <div id="section-insights" class="hidden space-y-6">
+                <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">📊 1. The Global Peak of 2006–2007</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">
+                            The dataset shows a distinct peak in emigration around <strong>2006 (82,967 emigrants)</strong> and <strong>2007 (80,599 emigrants)</strong>. 
+                            This trend is highly correlated with the global economic boom preceding the 2008 global financial crisis. 
+                            High labor demand and established immigration visas in destination countries (primarily the United States, Canada, and Australia) combined with domestic pushes in the Philippines to facilitate legal emigration pathways for families and professionals. 
+                            Following the financial crisis, immigration regulations tightened, leading to a noticeable drop in subsequent years.
+                        </p>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">🌎 2. Centralization and Geographic Concentration</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">
+                            There is a massive geographic imbalance in where registered emigrants originate. 
+                            The <strong>National Capital Region (NCR)</strong> alone accounts for <strong>687,518</strong> emigrants (approx. <strong>31.5%</strong> of the national total). 
+                            When combined with the adjacent regions of Central Luzon and CALABARZON, the three regions account for nearly <strong>64%</strong> of all emigrants. 
+                            This centralization is largely driven by urbanization, density of visa centers/embassies, international transport access, and higher concentrations of recruitment and administrative resources compared to outer rural regions (like MIMAROPA, ARMM, and Caraga).
+                        </p>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">🦠 3. The 2020 COVID-19 Trough</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">
+                            The sharpest single-year decline occurred in <strong>2020</strong>, where emigration plummeted to <strong>15,703</strong> (a <strong>75.9% decline</strong> from 2019's 65,164). 
+                            This is the lowest emigration count in the entire 32-year history recorded in this dataset and is directly caused by the COVID-19 pandemic, which resulted in travel bans, flights cancellations, border locks, and administrative shutdowns of processing entities globally.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= PAGE 3: POWER GENERATION DASHBOARD ================= -->
+        <section id="page-power" class="hidden space-y-6">
+            <!-- Dashboard Page Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-150 pb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">⚡ Philippines Power Generation Statistics (1990 - 2020)</h2>
+                    <p class="text-sm text-gray-500 mt-1">Electricity Generation Profile and Renewable Energy Transition</p>
+                </div>
+                <div class="text-xs text-gray-500 mt-2 md:mt-0 bg-blue-50 border border-blue-200 rounded-lg p-2.5 shadow-sm">
+                    <strong>Data Source:</strong> <a href="https://data.gov.ph/index/public/dataset/Power%20Generation%20by%20Fuel%20Source,%201990-2020/mhb14dc0-8tio-af0u-6nac-euxrn6bz48rm" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">Department of Energy (via data.gov.ph)</a>
+                </div>
+            </div>
+
+            <!-- Dashboard Menu / Sub-tabs -->
+            <div class="border-b border-gray-200">
+                <div class="flex space-x-8">
+                    <button id="subtab-power-overview" class="border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600">Overview & Transition</button>
+                    <button id="subtab-power-yearly" class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Yearly Breakdown</button>
+                </div>
+            </div>
+
+            <!-- ================= SUB-TAB: POWER OVERVIEW ================= -->
+            <div id="section-power-overview" class="space-y-6">
+                <!-- KPI Dashboard Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Total Generation (2020)</span>
+                        <span id="power-kpi-latest" class="text-2xl font-bold text-gray-900 mt-2">Loading...</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Peak Generation Year</span>
+                        <span id="power-kpi-peak" class="text-2xl font-bold text-gray-900 mt-2">Loading...</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Renewable Share (2020)</span>
+                        <span id="power-kpi-re-share" class="text-2xl font-bold text-green-600 mt-2">Loading...</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <span class="text-sm font-medium text-gray-500">Peak Renewable Share</span>
+                        <span id="power-kpi-peak-re-share" class="text-2xl font-bold text-blue-600 mt-2">Loading...</span>
+                    </div>
+                </div>
+
+                <!-- Combined Generation Line Chart -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Total Electricity Generation & Transition (GWh)</h3>
+                    <div class="h-80 w-full relative">
+                        <canvas id="chart-power-trend"></canvas>
+                    </div>
+                </div>
+
+                <!-- RE Share percentage line chart -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Renewable Energy Share of Total Generation (%)</h3>
+                    <div class="h-80 w-full relative">
+                        <canvas id="chart-power-re-share"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= SUB-TAB: POWER YEARLY BREAKDOWN ================= -->
+            <div id="section-power-yearly" class="hidden space-y-6">
+                <!-- Dropdown selector -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm max-w-xs">
+                    <label for="select-power-year" class="block text-sm font-semibold text-gray-700 mb-2">Select Calendar Year</label>
+                    <select id="select-power-year" class="w-full border border-gray-300 rounded-lg p-2.5 bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
+                        <!-- Populated dynamically via JS -->
+                    </select>
+                </div>
+
+                <!-- Graphs side-by-side: Pie Chart for mix, Bar Chart for details -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 self-start">Power Generation Fuel Mix</h3>
+                        <div class="h-80 w-full max-w-sm relative">
+                            <canvas id="chart-power-mix-pie"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Generation by Fuel Source (GWh)</h3>
+                        <div class="h-80 w-full relative">
+                            <canvas id="chart-power-mix-bar"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
+            &copy; 2026 John Carl Camacho. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Frontend logic javascript -->
+    <script src="app.js"></script>
+</body>
+</html>
