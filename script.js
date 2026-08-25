@@ -596,7 +596,8 @@ const blogPosts = {
         img: "https://lh3.googleusercontent.com/d/15IYjjbInP-htjFskwHeCzc1Q7ajoBBEi",
         content: `
             <p>"You won't catch me in any clubs, but you'll definitely find me at some coffee shops sitting in the corner alone quietly while sipping my fav drink." I saw this line in a TikTok post, and it made me wonder how much I have changed.</p>
-            <p>It feels really different now. I prefer hanging out without liquor now, finding quieter places and slower moments instead. Kung tutuusin, hindi ko rin alam kung gaano ako nagbago. Siguro pati ang anino ko, iba na rin ang anyo kaysa dati.</p>
+            <p>It feels really different now. I prefer hanging out without liquor now, finding quieter places and slower moments instead. I enjoy sitting in a coffee shop with a drink, a book, or my laptop, letting the afternoon pass without needing to fill every moment with conversation. There is something comforting about being alone in a public place, surrounded by people but free to move at my own pace.</p>
+            <p>Kung tutuusin, hindi ko rin alam kung gaano ako nagbago. Siguro pati ang anino ko, iba na rin ang anyo kaysa dati. Dati, I thought being alone meant missing out, but now it feels more like a choice to protect my peace and make space for the things I care about. I am learning that changing does not always mean leaving my old self behind; sometimes, it means finally understanding what kind of life feels honest to me.</p>
             <p>But in ten years, I still want to be the same Carl my mom used to know. I hope that even as my habits, places, and the way I spend my time change, I keep the parts of myself that matter. I want to grow without becoming unrecognizable to the people who have always known me.</p>
         `
     }
