@@ -20,6 +20,10 @@
         .focus\:ring-blue-500:focus { --tw-ring-color: #566c46 !important; }
         .focus\:border-blue-500:focus { border-color: #566c46 !important; }
         .text-green-600 { color: #566c46 !important; }
+        .data-guide { background: #ffffff; border: 1px solid #d9e2d2; border-left: 4px solid #566c46; }
+        .data-guide-label { color: #566c46; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        .data-guide p { color: #626a5c; line-height: 1.65; }
+        .data-guide h2, .data-guide h3 { color: #1c2217; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
@@ -40,6 +44,22 @@
 
     <!-- Main Container -->
     <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+
+        <section class="data-guide rounded-xl shadow-sm p-6 mb-8" aria-labelledby="data-guide-title">
+            <span class="data-guide-label">A simple guide to the data</span>
+            <h2 id="data-guide-title" class="text-2xl font-bold mt-2 mb-2">What are these dashboards showing?</h2>
+            <p class="mb-5">These dashboards turn large public datasets into charts you can explore. You can use the buttons above to switch between the two topics.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-bold mb-1">🇵🇭 Immigrant statistics</h3>
+                    <p class="text-sm">Each entry represents a registered Filipino emigrant, along with the year and place connected to that entry. The charts show changes over time and which regions, provinces, or municipalities have the most records.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-1">⚡ Fuel-use analysis</h3>
+                    <p class="text-sm">These charts show how the Philippines generated electricity from different fuel sources. GWh is a unit for measuring electricity, and renewable share is the percentage produced by sources such as hydro, geothermal, solar, wind, and biomass.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- ================= EMIGRANT ANALYSIS ================= -->
         <section id="page-dashboard" class="hidden space-y-6">
