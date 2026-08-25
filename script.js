@@ -386,7 +386,7 @@ if (pupCardImg) {
 // Blog Modal Functionality
 const blogPosts = {
     'academic-post': {
-        title: "The Art of Embracing Frustration: What Studying Physics is Really Like",
+        title: "What studying physics is really like.",
         meta: "Academic • August 2026 • 5 min read",
         img: "https://lh3.googleusercontent.com/d/1aETEUnCPy9J3RS-o7h8v_GTsoitA1p3s",
         content: `
@@ -416,7 +416,7 @@ const blogPosts = {
         `
     },
     'train-post': {
-        title: "Sonder on a Train: Space-Time and Connection",
+        title: "Sonder on a Train: Space-Time and Connection to existence and connection",
         meta: "Personal • June 2026 • 3 min read",
         img: "https://lh3.googleusercontent.com/d/1atFJEVCO1X9yINlAr6d56PVAfPtbhxFO",
         content: `
