@@ -370,8 +370,22 @@ async function loadOverviewData() {
         // Render Charts
         renderOverviewTrendChart(data.trend);
         renderOverviewRankings(data.top_regions, data.top_provinces);
+        updateImmigrantInsights(data);
 
     } catch (e) {
+function updateImmigrantInsights(data) {
+    const peak = data.trend.reduce((highest, item) => item.count > highest.count ? item : highest, data.trend[0]);
+    const region = data.top_regions[0];
+    const peakInsight = document.getElementById('immigrant-insight-peak');
+    const regionInsight = document.getElementById('immigrant-insight-region');
+    if (peakInsight && peak) {
+        peakInsight.textContent = `The highest number of registered emigrants was ${peak.count.toLocaleString()} in ${peak.year}. The sharp drop in 2020 reflects travel and administrative restrictions.`;
+    }
+    if (regionInsight && region) {
+        regionInsight.textContent = `${region.name} has the highest total, with ${region.count.toLocaleString()} registered emigrants. The records are more concentrated there than in any other region.`;
+    }
+}
+
         console.error("Error loading summary stats: ", e);
     }
 }
@@ -705,8 +719,33 @@ async function loadPowerData() {
         // 2. Render Overview Charts
         renderPowerTrendChart(records);
         renderPowerReShareChart(records);
+        updatePowerInsights(records);
 
         // 3. Populate Year Dropdown (descending order)
+function updatePowerInsights(records) {
+    const peakGeneration = records.reduce((highest, record) => record.grand_total > highest.grand_total ? record : highest, records[0]);
+    const latest = records[records.length - 1];
+    const sources = [
+        ['Coal', latest.coal],
+        ['Natural gas', latest.natural_gas],
+        ['Oil-based fuel', latest.oil_based],
+        ['Hydro', latest.hydro],
+        ['Geothermal', latest.geothermal],
+        ['Solar', latest.solar],
+        ['Wind', latest.wind],
+        ['Biomass', latest.biomass]
+    ];
+    const largestSource = sources.reduce((largest, source) => source[1] > largest[1] ? source : largest, sources[0]);
+    const peakInsight = document.getElementById('power-insight-peak');
+    const sourceInsight = document.getElementById('power-insight-source');
+    if (peakInsight) {
+        peakInsight.textContent = `Total electricity generation was highest in ${peakGeneration.year}, reaching ${Number(peakGeneration.grand_total).toLocaleString()} GWh.`;
+    }
+    if (sourceInsight) {
+        sourceInsight.textContent = `In ${latest.year}, ${largestSource[0]} was the largest individual source at ${Number(largestSource[1]).toLocaleString()} GWh. Renewable sources together supplied ${Number(latest.re_share_pct).toFixed(2)}% of generation.`;
+    }
+}
+
         const selectDropdown = document.getElementById('select-power-year');
         selectDropdown.innerHTML = '';
         
