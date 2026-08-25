@@ -1245,6 +1245,37 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 36px;
 }
 
+.blog-page-indicator {
+    align-items: center;
+    background: linear-gradient(135deg, var(--dark-olive), var(--primary-olive));
+    color: var(--bg-page);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    max-width: 360px;
+    min-height: 150px;
+    padding: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.blog-page-indicator-mark {
+    border: 1px solid currentColor;
+    font-family: var(--font-mono);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 0.55rem 0.8rem;
+}
+
+.blog-page-indicator span {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
 .blog-page-header .section-title {
     margin-bottom: 1rem;
 }
