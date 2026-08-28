@@ -425,7 +425,7 @@ const blogPosts = {
     },
     'academic-post': {
         title: "What studying physics is really like.",
-        meta: "Academic • July 24, 2025 • 5 min read",
+        meta: "Academic • July 2025 • 5 min read",
         img: "https://lh3.googleusercontent.com/d/1aETEUnCPy9J3RS-o7h8v_GTsoitA1p3s",
         content: `
             <p>Most people probably imagine studying physics as solving problems at the back of a textbook, covering a whiteboard with equations, and eventually having that one big <em>“eureka”</em> moment when everything suddenly makes sense. Sometimes it is like that. But most of the time, it is much less exciting. A lot of it is sitting in front of the same problem for hours, trying different things, getting stuck, and wondering why something that looked simple on paper isn't working when you actually try to do it.</p>
@@ -536,7 +536,7 @@ const blogPosts = {
     }, */
     'komorebi-post': {
         title: "Komorebi: The Light that Dances Between Leaves",
-        meta: "Personal • September 06, 2025 • 3 min read",
+        meta: "Personal • September 2025 • 3 min read",
         img: "https://lh3.googleusercontent.com/d/15eM1rKWwpZkz3Fvy4iRs4mRuMRxETTQH",
         content: `
             <p>There is a Japanese word that has always stuck with me: <i>Komorebi</i> (木漏れ日). It refers to the sunlight filtering through the leaves of trees. It's not just a word for the light itself, but for the movement, the way the wind moves the branches and shifts the patterns of light and shadow on the ground below. It describes a moment that is temporary, changing second by second as the earth rotates and the leaves sway.</p>
@@ -556,7 +556,7 @@ const blogPosts = {
     },
     'train-post': {
         title: "Sonder on a Train",
-        meta: "Personal • November 13, 2024 • 3 min read",
+        meta: "Personal • November 2024 • 3 min read",
         img: "https://lh3.googleusercontent.com/d/1atFJEVCO1X9yINlAr6d56PVAfPtbhxFO",
         content: `
             <p style="font-style: italic; line-height: 1.8; text-align: center; max-width: 500px; margin: 0 auto; font-family: var(--font-heading);">
