@@ -385,6 +385,44 @@ if (pupCardImg) {
 
 // Blog Modal Functionality
 const blogPosts = {
+    'seasons-post': {
+        title: "I yearn to experience every season with you",
+        meta: "Personal • August 2026 • 3 min read",
+        img: "https://lh3.googleusercontent.com/d/17k45bP4cOR4V6p3c75rOLn8oJPH7ObwE",
+        content: `
+            <p style="font-style: italic; line-height: 1.8; text-align: center; max-width: 600px; margin: 0 auto; font-family: var(--font-heading);">
+            Habang sumisilip ang liwanag sa pag-ikot ng mundo<br>
+            Dito sa bulaklak na to, inukit ang pangako sa'yo<br>
+            Isang tapat na pag-ibig na kailanman ay hindi kukupas<br>
+            Hudyat ng simula ng kwento nating walang wakas.<br><br>
+
+            Sabik akong salubungin ang lambing ng Tagsibol<br>
+            Hawak ang kamay mo habang mundo’y tahimik pa<br>
+            Marinig ang pag-asa sa bawat umaga<br>
+            Walang ibang hiling kundi makasama ka tuwina<br><br>
+
+            Sabik ako sa init at liwanag ng Tag-araw<br>
+            Kung saan ang saya'y malaya at umaapaw<br>
+            Tawanan nating parang kantang walang kupas<br>
+            Lahat ng lungkot nawawala sa'yong bawat yakap<br><br>
+
+            Sabik ako sa banayad na hangin ng Taglagas<br>
+            Kapag mga tuyong dahon ay nagsisimulang malagas<br>
+            Sabay maglalakad sa ilalim ng hubad na mga sanga<br>
+            Banayad ang paghinga kapiling ka<br><br>
+
+            Sabik ako sa matinding ginaw ng Taglamig<br>
+            Kung kailan mahaba ang gabi at tahimik ang paligid<br>
+            Hawak-kamay nating itataboy ang bawat unos<br>
+            Init ng pag-ibig natin ang mananaig hanggang lubos<br><br>
+
+            Gusto kong mabuhay sa bawat taong daraan<br>
+            Hindi lang sa init ng araw, kundi pati sa gitna ng ulan<br>
+            Sa paglipas ng panahon, hindi magbabago to<br>
+            Sabik akong maranasan ang bawat panahon kasama mo
+            </p>
+        `
+    },
     'academic-post': {
         title: "What studying physics is really like.",
         meta: "Academic • August 2026 • 5 min read",
