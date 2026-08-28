@@ -546,7 +546,7 @@ const blogPosts = {
     },
     'tinnitus-post': {
         title: "The Ringing of Silence: Thoughts on Tinnitus",
-        meta: "Personal • July 2026 • 3 min read",
+        meta: "Personal • December 2024 • 3 min read",
         img: "https://lh3.googleusercontent.com/d/1Dg68hA9E9maHs4B95H0EYyadElJjIVbb",
         content: `
             <p>I don't really like the sound of tinnitus. It is a persistent, high-pitched hum that lives in the background of my life, occupying the space where absolute silence is supposed to be. When a room gets quiet, or when I lie down to go to sleep at night, the ringing seems to grow louder. It is a steady, unchanging frequency, a reminder of a sound that isn't actually in the room, but only exists inside my own ears.</p>
